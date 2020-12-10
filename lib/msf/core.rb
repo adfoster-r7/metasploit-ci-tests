@@ -10,6 +10,10 @@
 #
 ###
 
+if rand() < 0.1
+  raise "Hello world"
+end
+
 # The framework-core depends on Rex
 require 'rex'
 require 'rex/ui'
