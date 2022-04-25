@@ -7,6 +7,8 @@ def without_prefix(prefix)
   proc { |value| value.sub(/^#{prefix}/, '') }
 end
 
+puts 'hello world'
+
 NAVIGATION_CONFIG = [
   {
     path: 'Home.md',
