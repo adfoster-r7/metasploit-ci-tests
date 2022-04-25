@@ -1,4 +1,4 @@
-name: Verify
+name: Docs
 
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
 permissions:
@@ -34,10 +34,6 @@ jobs:
     runs-on: ubuntu-18.04
     timeout-minutes: 40
 
-    defaults:
-      run:
-        working-directory: docs
-
     strategy:
       fail-fast: true
       matrix:
@@ -46,9 +42,6 @@ jobs:
 
     name: Ruby ${{ matrix.ruby }}
     steps:
-      - name: Install system dependencies
-        run: sudo apt-get install libpcap-dev graphviz
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -57,8 +50,10 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+          working-directory: docs
 
       - name: build
+        working-directory: docs
         run: |
           bundle exec ruby build.rb
           bundle exec ruby build.rb --production
