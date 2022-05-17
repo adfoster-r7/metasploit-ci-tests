@@ -17,6 +17,9 @@ NAVIGATION_CONFIG = [
     nav_order: 2
   },
   {
+    path: 'Loading-Test-Modules.md'
+  },
+  {
     title: 'Pentesting',
     folder: 'pentesting',
     nav_order: 3,
