@@ -487,6 +487,7 @@ module Build
           # Create a new branch + commit
           run_command("git branch -D #{new_wiki_branch_name}", exception: false)
           run_command("git checkout -b #{new_wiki_branch_name}")
+          run_command("git add metasploit-framework.wiki")
           run_command("git commit -am 'Move to folder'")
         end
 
